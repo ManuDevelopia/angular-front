@@ -7,10 +7,9 @@
     <title>My first AngularJS App</title>
   </head>
   <body>
-    <div ng-controller="MyFirstController"></div>
-
-    <project-create></project-create>
-    <project-list ></project-list>
+    <div ng-controller="MyFirstController">
+      <project-create project="project"></project-create>
+      <project-list ></project-list>
     </div>
   </body>
 </html>
