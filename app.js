@@ -51,13 +51,14 @@
     $http.get('http://localhost:5000/api/projects')
       .then(function(res){
         console.log(res);
+        list.project = res.data;
       })
       .catch(function(err){
         console.log(err);
       });
   }
 
-  function ProjectCreation(){
+  function ProjectCreation($http){
     var vm = this;
 
     vm.create = function(){
@@ -69,6 +70,15 @@
 
       if (vm.name){
         projectListJson.push(project);
+        
+        $http.post('http://localhost:5000/api/projects', project )
+          .then(function(res){
+            console.log(res);
+          })
+          .catch(function(err){
+            console.log(err);
+          });
+        
       }
 
     };
