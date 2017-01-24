@@ -10,9 +10,7 @@
 
 
   angular.module('myFirstApp' )
-    .controller('ProjectListController', function($scope){
-      $scope.greet = 'Projects';  
-    })
+
     .component('projectList', {
       templateUrl: 'project/view/project-list.html',
       controller: ProjectListComponentController,
@@ -21,14 +19,16 @@
       }
 
     })
+
     .component('projectDetail', {
-    templateUrl: 'project/view/project-detail.html',
-    controllerAs: 'detail',
-    bindings: {
-      project: '<'
-    }
+      templateUrl: 'project/view/project-detail.html',
+      controllerAs: 'detail',
+      bindings: {
+        project: '<'
+      }
+
   });
-  
+
 
 
   function ProjectListComponentController(){
@@ -36,6 +36,49 @@
 
     list.projects = projectListJson;
 
+  }
+
+  function  ProjectList($http){
+    var list = this;
+
+    // TODO: the project list will only include 
+    // minimal details to be shown at list
+    list.project = projectListJson;
+
+    $http.get('http://localhost:5000/api/projects')
+      .then(function(res){
+        console.log(res);
+        list.project = res.data;
+      })
+    .catch(function(err){
+      console.log(err);
+    });
+  }
+
+  function ProjectCreation($http){
+    var vm = this;
+
+    vm.create = function(){
+      var project = {
+        name: vm.name,
+        author: vm.author,
+        url: vm.url
+      };
+
+      if (vm.name){
+        projectListJson.push(project);
+
+        $http.post('http://localhost:5000/api/projects', project )
+          .then(function(res){
+            console.log(res);
+          })
+        .catch(function(err){
+          console.log(err);
+        });
+
+      }
+
+    };
   }
 
 })();
