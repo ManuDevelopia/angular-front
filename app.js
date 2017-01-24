@@ -7,36 +7,29 @@
     { name: 'Project3', author: 'John Doe', url: 'www.johsn.com'}
   ];
 
-  var app = angular.module('myFirstApp', [])
-    .controller('MyFirstController', function ($scope) {
+
+  // Do note declare any component here, do it in separate files
+  angular.module('myFirstApp', [])
+    .controller('mainController', function ($scope) {
       $scope.greet = 'Hi, this is Manu learning Angular!';
+    })
 
-      // TODO: as a sample I will pass a project to edit
-      $scope.project = projectListJson[0];
-    });
-
-  app.component('projectCreate', {
-    templateUrl: 'project-create.html',
+/*
+  .component('projectCreate', {
+    templateUrl: './project/view/project-create.html',
     controller: ProjectCreation,
     controllerAs: 'create'
-  });
+  })
 
-  app.component('projectList', {
-    templateUrl: 'project-list.html',
-    controller: ProjectList,
-    bindings: {
-      list: '<'
-    }
-  });
-
-  app.component('projectDetail', {
-    templateUrl: 'project-detail.html',
+  .component('projectDetail', {
+    templateUrl: './project/view/project-detail.html',
     controller: ProjectDetail,
     controllerAs: 'detail',
     bindings: {
       project: '<'
     }
   });
+*/
 
   function ProjectDetail(){
   }

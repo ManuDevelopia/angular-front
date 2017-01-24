@@ -4,12 +4,16 @@
     <meta charset="utf-8">
     <script src="angular.min.js"></script>
     <script src="app.js"></script>
+    <script src="project/project.js"></script>
     <title>My first AngularJS App</title>
   </head>
   <body>
-    <div ng-controller="MyFirstController">
-      <project-create project="project"></project-create>
-      <project-list ></project-list>
+    <div ng-controller="mainController">
+      {{greet}}
     </div>
+    <div ng-controller="ProjectListController">
+      {{greet}}
+    </div>
+    <project-list></project-list>
   </body>
 </html>
