@@ -32,7 +32,17 @@
       bindings: {
         project: '<'
       }
-    });
+    })
+    
+    .component('projectView', {
+      templateUrl: 'project/view/project-view.html',
+      controller: ProejctView,
+      controllerAs: 'view',
+      bindings: {
+        project: '<'
+      }
+    })
+    ;
 
   function ProjectListComponentController(){
     var list = this;
@@ -82,6 +92,12 @@
       }
 
     };
+  }
+
+  function ProejctView(){
+    var vm = this;
+
+    vm.project = projectListJson[0];
   }
 
 })();
