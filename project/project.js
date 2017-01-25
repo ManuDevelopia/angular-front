@@ -1,13 +1,11 @@
 (function(){
   'use strict';
 
-
   var projectListJson = [
   { name: '1 Project1', author: 'Manu Doe', url: 'www.Manujohsn.com'},
   { name: '2 Project2', author: 'Jane Doe', url: 'www.Janejohsn.com'},
   { name: '3 Project3', author: 'John Doe', url: 'www.johsn.com'}
   ];
-
 
   angular.module('myFirstApp' )
 
@@ -17,7 +15,6 @@
       bindings: {
         projects: '<'
       }
-
     })
 
     .component('projectDetail', {
@@ -26,10 +23,16 @@
       bindings: {
         project: '<'
       }
+    })
 
-  });
-
-
+    .component('projectEditor', {
+      templateUrl: 'project/view/project-editor.html',
+      controller: ProjectEditor,
+      controllerAs: 'project',
+      bindings: {
+        project: '<'
+      }
+    });
 
   function ProjectListComponentController(){
     var list = this;
@@ -55,7 +58,7 @@
     });
   }
 
-  function ProjectCreation($http){
+  function ProjectEditor($http){
     var vm = this;
 
     vm.create = function(){
