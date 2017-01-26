@@ -3,11 +3,21 @@
   <head>
     <meta charset="utf-8">
     <script src="angular.min.js"></script>
+    <script src="angular-ui-router.min.js"></script>
     <script src="app.js"></script>
     <script src="project/project.js"></script>
     <title>My first AngularJS App</title>
   </head>
   <body>
+
+    <div class="tabs">
+      <a ui-sref="projects" ui-sref-active="activeTab">Tab 1</a>
+      <a ui-sref="project" ui-sref-active="activeTab">Tab 2</a>
+      <!-- <button ui-sref="tab2">Tab 2</button> -->
+    </div>
+    <br>
+<ui-view></ui-view>
+
     <div ng-controller="mainController">
       {{greet}}
     </div>
