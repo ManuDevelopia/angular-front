@@ -13,17 +13,25 @@
 RoutesConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
   function RoutesConfig($stateProvider, $urlRoutesProvider){
 
-    $urlRoutesProvider.otherwise('/home');
+    $urlRoutesProvider.otherwise('/list');
 
-     $stateProvider.state('projects', {
-      url: '/projects',
-      templateUrl: './project/view/project-list.html'
+     $stateProvider.state('list', {
+      url: '/list',
+      templateUrl: './project/view/project-list.html',
+      component: 'projecctList'
     });
      
-     $stateProvider.state('project', {
-      url: '/project',
-      templateUrl: './project/view/project-list.html'
+     $stateProvider.state('view', {
+      url: '/view',
+      templateUrl: './project/view/project-view.html',
+      component: 'projectDetail'
     });
+
+     $stateProvider.state('editor', {
+      url: '/editor',
+      templateUrl: './project/view/project-editor.html',
+      component: 'ProjectEditor'
+     });
   }
 
 
