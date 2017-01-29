@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <html ng-app="myFirstApp">
-  <head>
-    <meta charset="utf-8">
-    <script src="angular.min.js"></script>
-    <script src="angular-ui-router.min.js"></script>
-    <script src="app.js"></script>
-    <script src="project/project.js"></script>
-    <title>My first AngularJS App</title>
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <script src="angular.min.js"></script>
+  <script src="angular-ui-router.min.js"></script>
+  <script src="app.js"></script>
+  <script src="project/project.js"></script>
+  <title>My first AngularJS App</title>
+</head>
+<body>
 
-    <div class="tabs">
-      <a ui-sref="list" >List</a>
-      <a ui-sref="view" >Project</a>
-      <a ui-sref="editor" >Editor</a>
-    </div>
-    <br>
-    <ui-view></ui-view>
-    <hr>
-    
-    <div ng-controller="mainController">
-      {{greet}}
-    </div>
-    <project-list></project-list>
-    <project-editor></project-editor>
-    <project-view></project-view>
-  </body>
+<div ng-controller="mainController">
+  {{greet}}
+</div>
+
+<div class="tabs">
+  <a ui-sref="list">List</a>
+  <a ui-sref="view">Project</a>
+  <a ui-sref="editor">Editor</a>
+</div>
+
+<br>
+
+<ui-view></ui-view>
+
+</body>
 </html>

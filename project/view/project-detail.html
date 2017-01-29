@@ -1,4 +1,4 @@
-{{detail.project.name}}
+<a ui-sref="view({id: detail.project.name})">{{detail.project.name}}</a>
 {{detail.project.author}}
 {{detail.project.url}}
-
+<a ui-sref="editor({id: detail.project.name})">edit</a>
