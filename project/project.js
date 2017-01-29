@@ -74,7 +74,7 @@
 
     var project = getProjectById($stateParams.id);
 
-    if (project  !== undefined){
+    if (project !== undefined) {
       vm.name = project.name;
       vm.author = project.author;
       vm.url = project.url;
@@ -114,9 +114,9 @@
     vm.project = getProjectById(id);
   }
 
-  function getProjectById(id){
-    for (var project of projectListJson){
-      if (project.name === id){
+  function getProjectById(id) {
+    for (var project of projectListJson) {
+      if (project.name === id) {
         return project;
       }
     }
