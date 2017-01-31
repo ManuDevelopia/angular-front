@@ -46,23 +46,19 @@
     })
   ;
 
-  function ProjectListComponentController() {
-    var list = this;
 
-    list.projects = projectListJson;
-  }
 
-  function ProjectList($http) {
+  function ProjectListComponentController($http) {
     var list = this;
 
     // TODO: the project list will only include 
     // minimal details to be shown at list
-    list.project = projectListJson;
+    list.projects = projectListJson;
 
     $http.get('http://localhost:5000/api/projects')
       .then(function (res) {
         console.log(res);
-        list.project = res.data;
+        list.projects = res.data;
       })
       .catch(function (err) {
         console.log(err);
@@ -88,6 +84,14 @@
       };
 
       if (vm.name) {
+        if (getProjectById(vm.name) !== undefined){
+         projectListJson = projectListJson.filter(function(project, item){
+            if (project.name !== vm.name){
+              return project;              
+            }
+          }) 
+        } 
+
         projectListJson.push(project);
 
         $http.post('http://localhost:5000/api/projects', project)
@@ -106,10 +110,6 @@
   function ProjectView($stateParams) {
     var vm = this;
     var id = $stateParams.id;
-
-    if (id === "") {
-      id = 0;
-    }
 
     vm.project = getProjectById(id);
   }
