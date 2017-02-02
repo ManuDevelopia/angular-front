@@ -13,10 +13,22 @@
       }
     });
 
-  function ProjectEditor($http, $stateParams) {
+  ProjectEditor.$inject = ['$http', '$stateParams', 'ProjectListService']
+  function ProjectEditor($http, $stateParams, ProjectListService) {
     var vm = this;
+    var id = $stateParams.id;
+    var project = undefined;
+    
+    if ( id !== undefined){
+      ProjectListService.getItemByName(id)
+        .then(function(prj){
+          project = prj;
+        })
+        .catch(function(err){
+          console.log(err);
+        });
+    } 
 
-    var project = getProjectById($stateParams.id);
 
     if (project !== undefined) {
       vm.name = project.name;
