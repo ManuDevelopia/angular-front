@@ -30,7 +30,6 @@
           deferred.resolve(project);
           break;
         }
-        deferred.reject('No match found with "' + id  + '"');
       }
 
       return deferred.promise;
