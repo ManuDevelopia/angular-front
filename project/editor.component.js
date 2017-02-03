@@ -13,8 +13,8 @@
       }
     });
 
-  ProjectEditor.$inject = ['$http', '$stateParams', 'ProjectListService'];
-  function ProjectEditor($http, $stateParams, ProjectListService) {
+  ProjectEditor.$inject = ['$http', '$stateParams', 'ProjectListService', '$location'];
+  function ProjectEditor($http, $stateParams, ProjectListService, $location) {
     var vm = this;
     var id = $stateParams.id;
     
@@ -41,6 +41,7 @@
         ProjectListService.addItem(project)
           .then(function(ok){
             console.log(ok);
+            $location.path('/list')
           })
           .catch(function(err){
             console.log(err);
