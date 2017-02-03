@@ -30,15 +30,30 @@
           deferred.resolve(project);
           break;
         }
-        deferred.reject('Sin coincidencia');
+        deferred.reject('No match found with "' + id  + '"');
       }
 
       return deferred.promise;
     };
  
     service.addItem = function(project){
+      var deferred = $q.defer();
+
       projectListJson.push(project);
+      deferred.resolve('Project has been added to collection');
+
+      return deferred.promise;
     };  
   }
 
 })();
+
+/*
+        $http.post('http://localhost:5000/api/projects', project)
+          .then(function (res) {
+            console.log(res);
+          })
+        .catch(function (err) {
+          console.log(err);
+        });
+*/
