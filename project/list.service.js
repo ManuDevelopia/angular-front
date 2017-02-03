@@ -43,6 +43,14 @@
 
       return deferred.promise;
     };  
+
+    service.updateItem = function(project){
+      var deferred = $q.defer();
+
+      deferred.resolve('Project has been updated');
+
+      return deferred.promise;
+    };
   }
 
 })();
