@@ -11,8 +11,8 @@
   angular.module('myFirstApp')
     .service('ProjectListService', ProjectListService);
 
-  ProjectListService.$inject = ['$q'];
-  function ProjectListService($q){
+  ProjectListService.$inject = ['$q', 'config'];
+  function ProjectListService($q, config){
     var service = this;
 
     service.getItems = function(){
@@ -24,6 +24,8 @@
 
     service.getItemByName = function(id){
       var deferred = $q.defer();
+
+      console.log(config);
 
       for (var project of projectListJson) {
         if (project.name === id) {

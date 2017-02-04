@@ -10,6 +10,10 @@
 
   angular.module('myFirstApp').config(RoutesConfig);
 
+  angular.module('myFirstApp').constant('config',{
+    apiUrl: 'http://localhost:5000/api'
+  });
+
   RoutesConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
   function RoutesConfig($stateProvider, $urlRoutesProvider) {
 
