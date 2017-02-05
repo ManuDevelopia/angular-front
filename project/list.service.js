@@ -1,23 +1,23 @@
 (function(){
   'use strict';
 
-  var projectListJson = [
-    {name: 'SProject1', author: 'Manu Doe', url: 'www.Manujohsn.com'},
-    {name: 'SProject2', author: 'Jane Doe', url: 'www.Janejohsn.com'},
-    {name: 'SProject3', author: 'John Doe', url: 'www.johsn.com'}
-  ];
-
-
   angular.module('myFirstApp')
     .service('ProjectListService', ProjectListService);
 
-  ProjectListService.$inject = ['$q', 'config'];
-  function ProjectListService($q, config){
+  ProjectListService.$inject = ['$q', '$http', 'config'];
+  function ProjectListService($q, $http, config){
     var service = this;
 
     service.getItems = function(){
       var deferred = $q.defer();
-      deferred.resolve(projectListJson);
+
+      $http.get(config.apiUrl + '/projects')
+        .then(function (res) {
+          deferred.resolve(res.data);
+        })
+        .catch(function (err) {
+          deferred.reject(err);
+        });
 
       return deferred.promise;
     };
@@ -25,44 +25,59 @@
     service.getItemByName = function(id){
       var deferred = $q.defer();
 
-      console.log(config);
-
-      for (var project of projectListJson) {
-        if (project.name === id) {
-          deferred.resolve(project);
-          break;
-        }
-      }
+      $http.get(config.apiUrl + '/project/' + id)
+        .then(function (res) {
+          deferred.resolve(res.data);
+        })
+        .catch(function (err) {
+          deferred.reject(err)
+        });
 
       return deferred.promise;
     };
- 
+
     service.addItem = function(project){
       var deferred = $q.defer();
 
-      projectListJson.push(project);
-      deferred.resolve('Project has been added to collection');
+      $http.post(config.apiUrl + '/projects', project)
+        .then(function (res) {
+          deferred.resolve(res.data);
+        })
+        .catch(function (err) {
+          deferred.reject(err)
+        });
 
       return deferred.promise;
-    };  
+    };
 
     service.updateItem = function(project){
       var deferred = $q.defer();
 
-      deferred.resolve('Project has been updated');
+      $http.put(config.apiUrl + '/project/' + project.id, project)
+        .then(function (res) {
+          deferred.resolve(res.data);
+        })
+        .catch(function (err) {
+          deferred.reject(err)
+        });
 
       return deferred.promise;
     };
+
+    service.deleteItem = function(project){
+      var deferred = $q.defer();
+
+      $http.delete(config.apiUrl + '/project/' + project.id, project)
+        .then(function (res) {
+          deferred.resolve(res.data);
+        })
+        .catch(function (err) {
+          deferred.reject(err)
+        });
+
+      return deferred.promise;
+    };
+
   }
 
 })();
-
-/*
-        $http.post('http://localhost:5000/api/projects', project)
-          .then(function (res) {
-            console.log(res);
-          })
-        .catch(function (err) {
-          console.log(err);
-        });
-*/

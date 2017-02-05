@@ -18,7 +18,8 @@
     var vm = this;
     var id = $stateParams.id;
     
-    if ( id !== undefined){
+    if ( id !== undefined ||
+         id.length > 0){
       ProjectListService.getItemByName(id)
         .then(function(prj){
           vm.name = prj.name;
