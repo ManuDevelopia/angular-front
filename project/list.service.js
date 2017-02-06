@@ -22,7 +22,7 @@
       return deferred.promise;
     };
 
-    service.getItemByName = function(id){
+    service.getItemById= function(id){
       var deferred = $q.defer();
 
       $http.get(config.apiUrl + '/project/' + id)

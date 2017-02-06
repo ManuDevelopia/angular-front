@@ -20,7 +20,7 @@
     
     if ( id !== undefined ||
          id.length > 0){
-      ProjectListService.getItemByName(id)
+      ProjectListService.getItemById(id)
         .then(function(prj){
           vm.name = prj.name;
           vm.author= prj.author;

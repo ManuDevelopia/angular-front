@@ -16,7 +16,7 @@
     var vm = this;
     var id = $stateParams.id;
 
-    ProjectListService.getItemByName(id)
+    ProjectListService.getItemById(id)
       .then(function(prj){
         vm.project = prj; 
       })
