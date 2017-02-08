@@ -9,7 +9,8 @@
       bindings: {
         name: '<',
         author: '<',
-        url: '<'
+        url: '<',
+        id: '<'
       }
     });
 
@@ -25,6 +26,7 @@
           vm.name = prj.name;
           vm.author= prj.author;
           vm.url = prj.url;
+          vm.id = prj._id;
         })
         .catch(function(err){
           console.log(err);
@@ -55,7 +57,8 @@
       var project = {
         name: vm.name,
         author: vm.author,
-        url: vm.url
+        url: vm.url,
+        id: vm.id
       };
 
       if (vm.name) {

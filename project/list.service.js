@@ -30,7 +30,7 @@
           deferred.resolve(res.data);
         })
         .catch(function (err) {
-          deferred.reject(err)
+          deferred.reject(err);
         });
 
       return deferred.promise;
@@ -44,7 +44,7 @@
           deferred.resolve(res.data);
         })
         .catch(function (err) {
-          deferred.reject(err)
+          deferred.reject(err);
         });
 
       return deferred.promise;
@@ -58,7 +58,7 @@
           deferred.resolve(res.data);
         })
         .catch(function (err) {
-          deferred.reject(err)
+          deferred.reject(err);
         });
 
       return deferred.promise;
@@ -72,7 +72,7 @@
           deferred.resolve(res.data);
         })
         .catch(function (err) {
-          deferred.reject(err)
+          deferred.reject(err);
         });
 
       return deferred.promise;
