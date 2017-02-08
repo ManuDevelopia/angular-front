@@ -50,6 +50,25 @@
        }
 
     };
+
+    vm.update = function() {
+      var project = {
+        name: vm.name,
+        author: vm.author,
+        url: vm.url
+      };
+
+      if (vm.name) {
+        ProjectListService.updateItem(project)
+          .then(function(ok){
+            console.log(ok);
+            $location.path('/list');
+          })
+          .catch(function(err){
+            console.log(err);
+          });
+       }
+    };
   }
 
 })();
