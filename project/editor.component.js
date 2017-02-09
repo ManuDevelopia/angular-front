@@ -5,13 +5,10 @@
     .component('projectEditor', {
       templateUrl: 'project/view/project-editor.html',
       controller: ProjectEditor,
-      controllerAs: 'project',
+      controllerAs: 'editor',
       bindings: {
-        name: '<',
-        author: '<',
-        url: '<',
-        id: '<'
-      }
+        project: '<'
+     }
     });
 
   ProjectEditor.$inject = ['$http', '$stateParams', 'ProjectListService', '$location'];
@@ -22,11 +19,8 @@
     if ( id !== undefined ||
          id.length > 0){
       ProjectListService.getItemById(id)
-        .then(function(prj){
-          vm.name = prj.name;
-          vm.author= prj.author;
-          vm.url = prj.url;
-          vm.id = prj._id;
+        .then(function(project){
+          vm.project = project;
         })
         .catch(function(err){
           console.log(err);
@@ -34,14 +28,8 @@
     } 
 
     vm.create = function () {
-      var project = {
-        name: vm.name,
-        author: vm.author,
-        url: vm.url
-      };
-
-      if (vm.name) {
-        ProjectListService.addItem(project)
+      if (vm.project.name) {
+        ProjectListService.addItem(vm.project)
           .then(function(ok){
             console.log(ok);
             $location.path('/list');
@@ -54,15 +42,8 @@
     };
 
     vm.update = function() {
-      var project = {
-        name: vm.name,
-        author: vm.author,
-        url: vm.url,
-        id: vm.id
-      };
-
-      if (vm.name) {
-        ProjectListService.updateItem(project)
+      if (vm.project.name) {
+        ProjectListService.updateItem(vm.project)
           .then(function(ok){
             console.log(ok);
             $location.path('/list');
@@ -72,6 +53,17 @@
           });
        }
     };
+
+    vm.delete = function(){
+      ProjectListService.deleteItem(vm.project)
+        .then(function(ok){
+            console.log(ok);
+            $location.path('/list');
+          })
+          .catch(function(err){
+            console.log(err);
+          });
+    }
   }
 
 })();

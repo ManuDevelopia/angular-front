@@ -23,6 +23,17 @@
       .catch(function(err){
         console.log(err);
       });
+
+    vm.delete = function(project){
+      ProjectListService.deleteItem(project)
+        .then(function(ok){
+          console.log(ok);
+        })
+        .catch(function(err){
+          console.log(err);
+        });
+        
+    };
   }
 
 })();

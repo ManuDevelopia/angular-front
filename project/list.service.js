@@ -53,7 +53,7 @@
     service.updateItem = function(project){
       var deferred = $q.defer();
 
-      $http.put(config.apiUrl + '/project/' + project.id, project)
+      $http.put(config.apiUrl + '/project/' + project._id, project)
         .then(function (res) {
           deferred.resolve(res.data);
         })
@@ -67,7 +67,7 @@
     service.deleteItem = function(project){
       var deferred = $q.defer();
 
-      $http.delete(config.apiUrl + '/project/' + project.id, project)
+      $http.delete(config.apiUrl + '/project/' + project._id)
         .then(function (res) {
           deferred.resolve(res.data);
         })
