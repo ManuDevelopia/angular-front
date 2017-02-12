@@ -5,6 +5,7 @@
     .component('projectList', {
       templateUrl: 'project/view/project-list.html',
       controller: ProjectListComponentController,
+      controllerAs: 'list',
       bindings: {
         projects: '<'
       }

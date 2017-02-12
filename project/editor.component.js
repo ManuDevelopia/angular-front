@@ -16,7 +16,7 @@
     var vm = this;
     var id = $stateParams.id;
     
-    if ( id !== undefined ||
+    if ( id !== undefined &&
          id.length > 0){
       ProjectListService.getItemById(id)
         .then(function(project){

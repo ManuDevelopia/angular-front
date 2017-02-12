@@ -11,8 +11,8 @@
       }
     });
 
-  ProjectView.$inject = ['$stateParams', 'ProjectListService'];
-  function ProjectView($stateParams, ProjectListService) {
+  ProjectView.$inject = ['$stateParams', '$location','ProjectListService'];
+  function ProjectView($stateParams, $location, ProjectListService) {
     var vm = this;
     var id = $stateParams.id;
 
@@ -32,8 +32,18 @@
         .catch(function(err){
           console.log(err);
         });
-        
     };
+
+    vm.delete = function(){
+      ProjectListService.deleteItem(vm.project)
+        .then(function(ok){
+          console.log(ok);
+          $location.path('/list');
+        })
+        .catch(function(err){
+          console.log(err);
+        });
+    }
   }
 
 })();

@@ -1,6 +1,6 @@
-<h2>Project List</h2>
+<h2>Project List ({{list.projects.length}})</h2>
 <ul>
-  <li ng-repeat="project in $ctrl.projects">
+  <li ng-repeat="project in list.projects">
     <project-detail project="project"></project-detail>
   </li>
 </ul>
