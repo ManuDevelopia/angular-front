@@ -33,6 +33,11 @@
       url: '/editor/:id',
       template: '<project-editor></project-editor>'
     });
+
+    $stateProvider.state('connector', {
+      url: '/connector',
+      template: '<connector-view></connector-view>'
+    });
   }
 
 })();
