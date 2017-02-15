@@ -35,7 +35,7 @@
     });
 
     $stateProvider.state('connector', {
-      url: '/connector',
+      url: '/connector/:id',
       template: '<connector-view></connector-view>'
     });
   }

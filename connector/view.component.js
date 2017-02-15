@@ -11,11 +11,15 @@
       }
     });
 
-  ConnectorView.$inject = [];
-  function ConnectorView(){
+  ConnectorView.$inject = ['$stateParams','ConnectorService'];
+  function ConnectorView($stateParams, ConnectorService){
     var vm = this;
+    var id = $stateParams.id;
 
-    vm.data = 'Hello this is a connector';
+    ConnectorService.getItemById(id)
+      .then(function(res){
+        vm.data = res;
+      })
   }
 
 })();

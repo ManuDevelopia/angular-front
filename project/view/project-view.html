@@ -8,6 +8,6 @@
   <div>Connectors ({{view.project.connectors.length}})</div>
 
   <ul ng-repeat="connector in view.project.connectors">
-    <li>{{connector}}</li>
+    <li><a ui-sref="connector({id: connector})">{{connector}}</li>
   </ul>
 </div>
