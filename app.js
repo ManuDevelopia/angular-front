@@ -38,6 +38,12 @@
       url: '/connector/:id',
       template: '<connector-view></connector-view>'
     });
+
+    $stateProvider.state('connectorEditor', {
+      url: '/connector/editor',
+      template: '<connector-editor></connector-editor>'
+    });
+  
   }
 
 })();

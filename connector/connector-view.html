@@ -1,3 +1,11 @@
 {{view.data.name}}
 <br>
 {{view.data.endpoint}}
+
+<ul>
+  <li ng-repeat="repository in view.data.github">
+    <a href="{{repository.html_url}}">
+      {{repository.name}}
+    </a>
+  </li>
+</ul>
