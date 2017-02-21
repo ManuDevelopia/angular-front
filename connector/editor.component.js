@@ -32,7 +32,7 @@
         ConnectorService.addItem(vm.connector)
           .then(function(ok){
             console.log(ok);
-            $location.path('/list');
+            $location.path('/connector/list');
           })
           .catch(function(err){
             console.log(err);
@@ -46,7 +46,7 @@
         ConnectorService.updateItem(vm.connector)
           .then(function(ok){
             console.log(ok);
-            $location.path('/list');
+            $location.path('/connector/list');
           })
           .catch(function(err){
             console.log(err);
@@ -58,7 +58,7 @@
       ConnectorService.deleteItem(vm.connector)
         .then(function(ok){
             console.log(ok);
-            $location.path('/list');
+            $location.path('/connector/list');
           })
           .catch(function(err){
             console.log(err);
