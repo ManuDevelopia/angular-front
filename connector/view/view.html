@@ -1,0 +1,6 @@
+<div>
+  <h3>{{view.connector.name}}</h3>
+  <a ui-sref="connectorEditor({id: view.connector._id})">edit</a>
+  <a ng-click="view.delete(detail.connector)">delete</a>
+  <h4>{{view.connector.endpoint}}</h4>
+</div>

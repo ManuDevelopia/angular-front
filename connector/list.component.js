@@ -3,11 +3,11 @@
 
   angular.module('myFirstApp')
     .component('connectorList', {
-      templateUrl: 'connect/view/list.html',
+      templateUrl: 'connector/view/list.html',
       controller: ConnectorListComponentController,
       controllerAs: 'list',
       bindings: {
-        connector: '<'
+        connectors: '<'
       }
     });
 
@@ -18,7 +18,7 @@
     list.$onInit = function(){
       ConnectorService.getItems()
         .then(function (connectorList){
-          list.connector = connectorList;
+          list.connectors = connectorList;
         })
       .catch(function(error){
         console.log('An error occurred while getting the connector list!');

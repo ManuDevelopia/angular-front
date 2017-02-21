@@ -34,13 +34,18 @@
       template: '<project-editor></project-editor>'
     });
 
-    $stateProvider.state('connector', {
+    $stateProvider.state('connectorList', {
+      url: '/connector/list',
+      template: '<connector-list></connector-list>'
+    })
+
+    $stateProvider.state('connectorView', {
       url: '/connector/:id',
       template: '<connector-view></connector-view>'
     });
 
     $stateProvider.state('connectorEditor', {
-      url: '/connector/editor',
+      url: '/connector/editor/:id',
       template: '<connector-editor></connector-editor>'
     });
   
