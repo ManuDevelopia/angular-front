@@ -1,0 +1,12 @@
+<h2>Project Editor</h2>
+
+<input type="text" ng-model="editor.project.name" placeholder="Name">
+<br>
+<input type="text" ng-model="editor.project.author" placeholder="Owner">
+<br>
+<input type="text" ng-model="editor.project.url" placeholder="Url">
+<br>
+
+<button ng-show="!editor.project._id" ng-click="editor.create();">Create!</button>
+<button ng-show="editor.project._id" ng-click="editor.update();">Update!</button>
+<button ng-show="editor.project._id" ng-click="editor.delete();">Delete!</button>

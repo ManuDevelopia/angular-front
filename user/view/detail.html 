@@ -1,0 +1,7 @@
+{{detail.project._id}}
+<a ui-sref="projectView({id: detail.project._id})">{{detail.project.name}}</a>
+{{detail.project.author}}
+{{detail.project.url}}
+<a ui-sref="projectEditor({id: detail.project._id})">edit</a>
+<a ng-click="detail.delete(detail.project)">delete </a>
+<div>Connectors ({{detail.project.connectors.length}})</div>

@@ -1,0 +1,11 @@
+<h2>Project List ({{list.projects.length}})</h2>
+
+<a ui-sref="projectEditor">New</a></a>
+
+<ul>
+  <li ng-repeat="project in list.projects">
+    <project-detail project="project"></project-detail>
+  </li>
+</ul>
+
+
