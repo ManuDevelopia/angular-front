@@ -1,4 +1,7 @@
 <h2>Connector List ({{list.connectors.length}})</h2>
+
+<a ui-sref="connectorEditor">New</a>
+
 <ul>
   <li ng-repeat="connector in list.connectors">
     <connector-detail connector="connector"></connector-detail>

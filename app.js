@@ -5,7 +5,7 @@
   angular.module('myFirstApp', ['ui.router']);
 
   angular.module('myFirstApp').controller('mainController', function ($scope) {
-    $scope.greet = 'Hi, this is Manu learning Angular!';
+    $scope.greet = 'Hi, this is Manu learning Angular, welcome to my application!';
   });
 
   angular.module('myFirstApp').config(RoutesConfig);
@@ -17,20 +17,20 @@
   RoutesConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
   function RoutesConfig($stateProvider, $urlRoutesProvider) {
 
-    $urlRoutesProvider.otherwise('/list');
+    $urlRoutesProvider.otherwise('/project/list');
 
-    $stateProvider.state('list', {
-      url: '/list',
+    $stateProvider.state('projectList', {
+      url: '/project/list',
       template: '<project-list></project-list>'
     });
 
-    $stateProvider.state('view', {
-      url: '/view/:id',
+    $stateProvider.state('projectView', {
+      url: '/project/view/:id',
       template: '<project-view></project-view>'
     });
 
-    $stateProvider.state('editor', {
-      url: '/editor/:id',
+    $stateProvider.state('projectEditor', {
+      url: '/project/editor/:id',
       template: '<project-editor></project-editor>'
     });
 
