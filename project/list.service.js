@@ -22,7 +22,7 @@
       return deferred.promise;
     };
 
-    service.getItemById= function(id){
+    service.getItemById = function(id){
       var deferred = $q.defer();
 
       $http.get(config.apiUrl + '/project/' + id)
@@ -78,6 +78,26 @@
       return deferred.promise;
     };
 
+    service.addConector = function(projectId, connector){
+      var deferred = $q.defer();
+
+      getItemById(projectId)
+        .then(function(res){
+          var project = res.data;
+
+          project.connectors.push(connector);
+          updateItem(project)
+            .then(function(resUpdate){
+              deferred.resolve(project);
+            });
+        })
+      .catch(function(err){
+        deferred.reject(err);
+        console.log(err);
+      });
+
+      return deferred.promise;
+    }
   }
 
 })();

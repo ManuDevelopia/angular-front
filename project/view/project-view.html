@@ -5,7 +5,9 @@
   <h4>{{view.project.author}}</h4>
   <h4>{{view.project.url}}</h4>
 
-  <div>Connectors ({{view.project.connectors.length}})</div>
+  <div>Connectors ({{view.project.connectors.length}})
+    <a ui-sref="connectorCreator({project_id: view.project._id})">New</a>
+  </div>
 
   <ul ng-repeat="connector in view.project.connectors">
     <li><a ui-sref="connectorView({id: connector})">{{connector}}</li>

@@ -49,6 +49,10 @@
       template: '<connector-editor></connector-editor>'
     });
   
+    $stateProvider.state('connectorCreator', {
+      url: '/connector/creator/:project_id',
+      template: '<connector-editor></connector-editor>'
+    });
   }
 
 })();

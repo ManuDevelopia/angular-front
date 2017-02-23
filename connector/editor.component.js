@@ -15,6 +15,7 @@
   function ConnectorEditor($http, $stateParams, ConnectorService, $location) {
     var vm = this;
     var id = $stateParams.id;
+    var project_id = $stateParams.project_id;
     
     if ( id !== undefined &&
          id.length > 0){
