@@ -2,9 +2,9 @@
   'use strict';
 
   angular.module('myFirstApp')
-    .controller('ProjectListController', ProjectListController);
+    .controller('UserListController', UserListController);
 
-  function ProjectListController($http) {
+  function UserListController($http) {
     var list = this;
 
     list.$onInit = function(){

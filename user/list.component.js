@@ -2,26 +2,26 @@
   'use strict';
 
   angular.module('myFirstApp')
-    .component('projectList', {
-      templateUrl: 'project/view/project-list.html',
-      controller: ProjectListComponentController,
+    .component('userList', {
+      templateUrl: 'user/view/list.html',
+      controller: UserListComponentController,
       controllerAs: 'list',
       bindings: {
-        projects: '<'
+        users: '<'
       }
     });
 
-  ProjectListComponentController.$inject = ['$http', 'ProjectListService'];
-  function ProjectListComponentController($http, ProjectListService) {
+  UserListComponentController.$inject = ['$http', 'UserService'];
+  function UserListComponentController($http, UserService) {
     var list = this;
 
     list.$onInit = function(){
-      ProjectListService.getItems()
-        .then(function (projectList){
-          list.projects = projectList;
+      UserService.getItems()
+        .then(function (userList){
+          list.users = userList;
         })
       .catch(function(error){
-        console.log('An error occurred while getting the project list!');
+        console.log('An error occurred while getting the user list!');
       });
 
     };

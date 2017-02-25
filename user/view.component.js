@@ -2,30 +2,30 @@
   'use strict';
   
   angular.module('myFirstApp')
-    .component('projectView', {
-      templateUrl: 'project/view/project-view.html',
-      controller: ProjectView,
+    .component('usertView', {
+      templateUrl: 'user/view/view.html',
+      controller: UserView,
       controllerAs: 'view',
       bindings: {
-        project: '<'
+        user: '<'l
       }
     });
 
-  ProjectView.$inject = ['$stateParams', '$location','ProjectListService'];
-  function ProjectView($stateParams, $location, ProjectListService) {
+  UserView.$inject = ['$stateParams', '$location','UserService'];
+  function UserView($stateParams, $location, UserService) {
     var vm = this;
     var id = $stateParams.id;
 
-    ProjectListService.getItemById(id)
+    UserService.getItemById(id)
       .then(function(prj){
-        vm.project = prj; 
+        vm.user = prj; 
       })
       .catch(function(err){
         console.log(err);
       });
 
-    vm.delete = function(project){
-      ProjectListService.deleteItem(project)
+    vm.delete = function(user){
+      UserService.deleteItem(user)
         .then(function(ok){
           console.log(ok);
         })
@@ -35,10 +35,10 @@
     };
 
     vm.delete = function(){
-      ProjectListService.deleteItem(vm.project)
+      UserService.deleteItem(vm.user)
         .then(function(ok){
           console.log(ok);
-          $location.path('/list');
+          $location.path('/user/list');
         })
         .catch(function(err){
           console.log(err);

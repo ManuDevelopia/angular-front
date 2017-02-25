@@ -1,10 +1,10 @@
-<h2>Project List ({{list.projects.length}})</h2>
+<h2>User List ({{list.users.length}})</h2>
 
-<a ui-sref="projectEditor">New</a></a>
+<a ui-sref="userEditor">New</a></a>
 
 <ul>
-  <li ng-repeat="project in list.projects">
-    <project-detail project="project"></project-detail>
+  <li ng-repeat="user in list.users">
+    <user-detail user="user"></user-detail>
   </li>
 </ul>
 

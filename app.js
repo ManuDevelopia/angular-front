@@ -53,6 +53,21 @@
       url: '/connector/creator/:project_id',
       template: '<connector-editor></connector-editor>'
     });
+ 
+    $stateProvider.state('userList', {
+      url: '/user/list',
+      template: '<user-list></user-list>'
+    });
+
+    $stateProvider.state('userView', {
+      url: '/user/view/:id',
+      template: '<user-view></user-view>'
+    });
+
+    $stateProvider.state('userEditor', {
+      url: '/user/editor/:id',
+      template: '<user-editor></user-editor>'
+    }); 
   }
 
 })();

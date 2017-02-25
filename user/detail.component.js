@@ -3,22 +3,22 @@
 
   angular.module('myFirstApp')
 
-   .component('projectDetail', {
-      templateUrl: 'project/view/project-detail.html',
-      controller: ProjectDetail,
+   .component('userDetail', {
+      templateUrl: 'user/view/detail.html',
+      controller: UserDetail,
       controllerAs: 'detail',
       bindings: {
-        project: '<'
+        user: '<'
       }
     })
   ;
 
-  ProjectDetail.$inject = ['ProjectListService', '$location'];
-  function ProjectDetail(ProjectListService, $location){
+  UserDetail.$inject = ['UserService', '$location'];
+  function UserDetail(UserService, $location){
     var vm = this;
 
-    vm.delete = function(project){
-      ProjectListService.deleteItem(project)
+    vm.delete = function(user){
+      UserService.deleteItem(user)
         .then(function(ok){
           console.log(ok);
           $location.path('/list');

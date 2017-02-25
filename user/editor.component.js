@@ -2,25 +2,25 @@
   'use strict';
 
   angular.module('myFirstApp')
-    .component('projectEditor', {
-      templateUrl: 'project/view/project-editor.html',
-      controller: ProjectEditor,
+    .component('userEditor', {
+      templateUrl: 'user/view/editor.html',
+      controller: UserEditor,
       controllerAs: 'editor',
       bindings: {
-        project: '<'
+        user: '<'
      }
     });
 
-  ProjectEditor.$inject = ['$http', '$stateParams', 'ProjectListService', '$location'];
-  function ProjectEditor($http, $stateParams, ProjectListService, $location) {
+  UserEditor.$inject = ['$http', '$stateParams', 'UserService', '$location'];
+  function UserEditor($http, $stateParams, UserService, $location) {
     var vm = this;
     var id = $stateParams.id;
     
     if ( id !== undefined &&
          id.length > 0){
-      ProjectListService.getItemById(id)
-        .then(function(project){
-          vm.project = project;
+      UserService.getItemById(id)
+        .then(function(user){
+          vm.user = user;
         })
         .catch(function(err){
           console.log(err);
@@ -28,11 +28,11 @@
     } 
 
     vm.create = function () {
-      if (vm.project.name) {
-        ProjectListService.addItem(vm.project)
+      if (vm.user.name) {
+        UserService.addItem(vm.user)
           .then(function(ok){
             console.log(ok);
-            $location.path('/list');
+            $location.path('/user/list');
           })
           .catch(function(err){
             console.log(err);
@@ -42,11 +42,11 @@
     };
 
     vm.update = function() {
-      if (vm.project.name) {
-        ProjectListService.updateItem(vm.project)
+      if (vm.user.name) {
+        UserService.updateItem(vm.user)
           .then(function(ok){
             console.log(ok);
-            $location.path('/list');
+            $location.path('/user/list');
           })
           .catch(function(err){
             console.log(err);
@@ -55,10 +55,10 @@
     };
 
     vm.delete = function(){
-      ProjectListService.deleteItem(vm.project)
+      UserService.deleteItem(vm.user)
         .then(function(ok){
             console.log(ok);
-            $location.path('/list');
+            $location.path('/user/list');
           })
           .catch(function(err){
             console.log(err);

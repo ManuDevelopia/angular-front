@@ -2,16 +2,16 @@
   'use strict';
 
   angular.module('myFirstApp')
-    .service('ProjectListService', ProjectListService);
+    .service('UserService', UserService);
 
-  ProjectListService.$inject = ['$q', '$http', 'config'];
-  function ProjectListService($q, $http, config){
+  UserService.$inject = ['$q', '$http', 'config'];
+  function UserService($q, $http, config){
     var service = this;
 
     service.getItems = function(){
       var deferred = $q.defer();
 
-      $http.get(config.apiUrl + '/projects')
+      $http.get(config.apiUrl + '/users')
         .then(function (res) {
           deferred.resolve(res.data);
         })
@@ -25,7 +25,7 @@
     service.getItemById = function(id){
       var deferred = $q.defer();
 
-      $http.get(config.apiUrl + '/project/' + id)
+      $http.get(config.apiUrl + '/user/' + id)
         .then(function (res) {
           deferred.resolve(res.data);
         })
@@ -36,10 +36,10 @@
       return deferred.promise;
     };
 
-    service.addItem = function(project){
+    service.addItem = function(user){
       var deferred = $q.defer();
 
-      $http.post(config.apiUrl + '/projects', project)
+      $http.post(config.apiUrl + '/users', user)
         .then(function (res) {
           deferred.resolve(res.data);
         })
@@ -50,10 +50,10 @@
       return deferred.promise;
     };
 
-    service.updateItem = function(project){
+    service.updateItem = function(user){
       var deferred = $q.defer();
 
-      $http.put(config.apiUrl + '/project/' + project._id, project)
+      $http.put(config.apiUrl + '/user/' + user._id, user)
         .then(function (res) {
           deferred.resolve(res.data);
         })
@@ -64,10 +64,10 @@
       return deferred.promise;
     };
 
-    service.deleteItem = function(project){
+    service.deleteItem = function(user){
       var deferred = $q.defer();
 
-      $http.delete(config.apiUrl + '/project/' + project._id)
+      $http.delete(config.apiUrl + '/user/' + user._id)
         .then(function (res) {
           deferred.resolve(res.data);
         })
@@ -77,27 +77,7 @@
 
       return deferred.promise;
     };
-
-    service.addConector = function(projectId, connector){
-      var deferred = $q.defer();
-
-      getItemById(projectId)
-        .then(function(res){
-          var project = res.data;
-
-          project.connectors.push(connector);
-          updateItem(project)
-            .then(function(resUpdate){
-              deferred.resolve(project);
-            });
-        })
-      .catch(function(err){
-        deferred.reject(err);
-        console.log(err);
-      });
-
-      return deferred.promise;
-    }
+   
   }
 
 })();
