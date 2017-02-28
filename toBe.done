@@ -1,2 +1,3 @@
 [To be done]
 - Check/update only changed registers from froms for all models
+- do not expose irrelevant fields such user password when retrieving objects to the front
