@@ -2,12 +2,12 @@
   'use strict';
   
   angular.module('myFirstApp')
-    .component('usertView', {
+    .component('userView', {
       templateUrl: 'user/view/view.html',
       controller: UserView,
       controllerAs: 'view',
       bindings: {
-        user: '<'l
+        user: '<'
       }
     });
 
