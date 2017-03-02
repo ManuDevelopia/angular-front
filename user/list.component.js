@@ -7,12 +7,13 @@
       controller: UserListComponentController,
       controllerAs: 'list',
       bindings: {
-        users: '<'
+        users: '<',
+        loggedInUser: '<'
       }
     });
 
-  UserListComponentController.$inject = ['$http', 'UserService'];
-  function UserListComponentController($http, UserService) {
+  UserListComponentController.$inject = ['$http', 'UserService', 'LoggedInUserService'];
+  function UserListComponentController($http, UserService, LoggedInUserService) {
     var list = this;
 
     list.$onInit = function(){
@@ -24,6 +25,7 @@
         console.log('An error occurred while getting the user list!');
       });
 
+      list.loggedInUser = LoggedInUserService.user();
     };
   }
 
