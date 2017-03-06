@@ -4,7 +4,8 @@
   angular.module('myFirstApp')
     .controller('ProjectListController', ProjectListController);
 
-  function ProjectListController($http) {
+  ProjectListController.$inject = ['$scope','LoggedInService'];
+  function ProjectListController($scope, LoggedInService) {
     var list = this;
 
     list.$onInit = function(){

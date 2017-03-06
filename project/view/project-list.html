@@ -1,6 +1,7 @@
-<h2>Project List ({{list.projects.length}})</h2>
+<div ng-controller="ProjectListController">
+  <h2>Project List ({{list.projects.length}})</h2>
 
-<a ui-sref="projectEditor">New</a></a>
+  <a ui-sref="projectEditor">New</a></a>
 
 <ul>
   <li ng-repeat="project in list.projects">
@@ -8,4 +9,4 @@
   </li>
 </ul>
 
-
+</div>

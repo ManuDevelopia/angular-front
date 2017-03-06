@@ -2,12 +2,12 @@
   'use strict';
 
   angular.module('myFirstApp')
-    .service('LoggedInUserService', LoggedInUserService);
+    .service('LoggedInService', LoggedInService);
 
-  LoggedInUserService.$inject = ['UserService'];
-  function LoggedInUserService(UserService){
+  LoggedInService.$inject = [];
+  function LoggedInService(){
     var service = this;
-    var LoggedInUser =   {
+    var loggedInUser =   {
       _id: "58a49a5eb8929469ea88927a",
       name: "Manu",
       email: "manu@developia.info",
@@ -15,12 +15,25 @@
       __v: 0
     };
 
-    service.user = function(){
-      return LoggedInUser;
+    var loggedInProject;
+
+    service.user = function(user){
+      if (user !== undefined){
+        loggedInUser = user;
+      }
+
+      return loggedInUser;
     }
 
+    service.project = function(project){
+      if (project !== undefined){
+        loggedInProject = project;
+      }
+
+      return loggedInProject;
+    }
+    
     // TODO: maybe this could be a nice idea
-    service.project = function(){}
     service.organization = function(){}
     service.team = function(){}
   }

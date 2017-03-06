@@ -1,8 +1,9 @@
 <div>
-  <h3>{{view.project.name}}</h3>
-  <a ui-sref="projectEditor({id: view.project._id})">edit</a>
-  <a ng-click="view.delete(detail.project)">delete </a>
-  <h4>{{view.project.author}}</h4>
+  <h3>{{view.project.name}}
+    <a ui-sref="projectEditor({id: view.project._id})">edit</a>
+    <a ng-click="view.delete(detail.project)">delete </a>
+  </h3>
+  <user-detail user="view.project.user"></user-detail>
   <h4>{{view.project.url}}</h4>
 
   <div>Connectors ({{view.project.connectors.length}})
@@ -10,6 +11,6 @@
   </div>
 
   <ul ng-repeat="connector in view.project.connectors">
-    <li><a ui-sref="connectorView({id: connector})">{{connector}}</li>
+    <li><connector-detail connector="connector"></connector-detail></li>
   </ul>
 </div>

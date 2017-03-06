@@ -4,8 +4,9 @@
   // Do note declare any component here, do it in separate files
   angular.module('myFirstApp', ['ui.router']);
 
-  angular.module('myFirstApp').controller('mainController', function ($scope) {
+  angular.module('myFirstApp').controller('mainController', function ($scope, LoggedInService) {
     $scope.greet = 'Hi, this is Manu learning Angular, welcome to my application!';
+    $scope.user = LoggedInService.user();
   });
 
   angular.module('myFirstApp').config(RoutesConfig);

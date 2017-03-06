@@ -11,28 +11,19 @@
       }
     });
 
-  ProjectView.$inject = ['$stateParams', '$location','ProjectListService'];
-  function ProjectView($stateParams, $location, ProjectListService) {
+  ProjectView.$inject = ['$stateParams', '$location','ProjectListService', 'LoggedInService'];
+  function ProjectView($stateParams, $location, ProjectListService, LoggedInService) {
     var vm = this;
     var id = $stateParams.id;
 
     ProjectListService.getItemById(id)
-      .then(function(prj){
-        vm.project = prj; 
+      .then(function(project){
+        vm.project = project;
+        LoggedInService.project(project)
       })
       .catch(function(err){
         console.log(err);
       });
-
-    vm.delete = function(project){
-      ProjectListService.deleteItem(project)
-        .then(function(ok){
-          console.log(ok);
-        })
-        .catch(function(err){
-          console.log(err);
-        });
-    };
 
     vm.delete = function(){
       ProjectListService.deleteItem(vm.project)

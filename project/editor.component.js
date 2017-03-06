@@ -11,8 +11,8 @@
      }
     });
 
-  ProjectEditor.$inject = ['$http', '$stateParams', 'ProjectListService', '$location'];
-  function ProjectEditor($http, $stateParams, ProjectListService, $location) {
+  ProjectEditor.$inject = ['$http', '$stateParams', '$location', 'ProjectListService', 'LoggedInService'];
+  function ProjectEditor($http, $stateParams, $location, ProjectListService, LoggedInService) {
     var vm = this;
     var id = $stateParams.id;
     
@@ -29,6 +29,7 @@
 
     vm.create = function () {
       if (vm.project.name) {
+        vm.project.user = LoggedInService.user();
         ProjectListService.addItem(vm.project)
           .then(function(ok){
             console.log(ok);
