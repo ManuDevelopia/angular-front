@@ -12,8 +12,8 @@
       }
     });
 
-  UserListComponentController.$inject = ['$http', 'UserService', 'LoggedInUserService'];
-  function UserListComponentController($http, UserService, LoggedInUserService) {
+  UserListComponentController.$inject = ['$http', 'UserService', 'LoggedInService'];
+  function UserListComponentController($http, UserService, LoggedInService) {
     var list = this;
 
     list.$onInit = function(){
