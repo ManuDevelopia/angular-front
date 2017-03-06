@@ -1,0 +1,8 @@
+<h2>Metric Editor</h2>
+<input type="text" ng-model="editor.metric.name" placeholder="Name">
+<br>
+<input type="text" ng-model="editor.metric.value" placeholder="Value">
+<br>
+<button ng-show="!editor.metric._id" ng-click="editor.create();">Create!</button>
+<button ng-show="editor.metric._id" ng-click="editor.update();">Update!</button>
+<button ng-show="editor.metric._id" ng-click="editor.delete();">Delete!</button>

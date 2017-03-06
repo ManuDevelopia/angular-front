@@ -1,0 +1,6 @@
+<div>
+  <h3>{{view.metric.name}}</h3>
+  <a ui-sref="metricEditor({id: view.metric._id})">edit</a>
+  <a ng-click="view.delete(detail.metric)">delete</a>
+  <h4>{{view.metric.endpoint}}</h4>
+</div>

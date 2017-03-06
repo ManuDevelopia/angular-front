@@ -55,6 +55,26 @@
       template: '<connector-editor></connector-editor>'
     });
  
+    $stateProvider.state('metricList', {
+      url: '/metric/list',
+      template: '<metric-list></metric-list>'
+    })
+
+    $stateProvider.state('metricView', {
+      url: '/metric/:id',
+      template: '<metric-view></metric-view>'
+    });
+
+    $stateProvider.state('metricEditor', {
+      url: '/metric/editor/:id',
+      template: '<metric-editor></metric-editor>'
+    });
+  
+    $stateProvider.state('metricCreator', {
+      url: '/metric/creator/:project_id',
+      template: '<metric-editor></metric-editor>'
+    });
+ 
     $stateProvider.state('userList', {
       url: '/user/list',
       template: '<user-list></user-list>'

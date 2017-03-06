@@ -1,0 +1,11 @@
+<h2>Metric List ({{list.metrics.length}})</h2>
+
+<a ui-sref="metricEditor">New</a>
+
+<ul>
+  <li ng-repeat="metric in list.metrics">
+    <metric-detail metric="metric"></metric-detail>
+  </li>
+</ul>
+
+
