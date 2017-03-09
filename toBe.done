@@ -2,3 +2,4 @@
 - Check/update only changed registers from froms for all models
 - do not expose irrelevant fields suc"h user password when retrieving objects to the front
 - Take a look about 'Bundle' to avoid add js into index.html. commonjs
+- Backend crud does not update all the fields, its need to be implmented in frontend first.

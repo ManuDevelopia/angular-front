@@ -77,7 +77,25 @@
 
       return deferred.promise;
     };
+    
+    service.addMetric = function(connectorId, metric){
+      var deferred = $q.defer();
+  
+      service.getItemById(connectorId)
+        .then(function(res){
+          var connector = res.data;
+          connector.metrics.push(metric);
+          updateItem()
+            .then(function(res){
+              deferred.resolve(connector);
+            });
+        })
+        .catch(function(err){
+          deferred.reject(err);
+        });
 
+      return deferred.promise;
+    };
   }
 
 })();

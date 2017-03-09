@@ -7,7 +7,17 @@
 <button ng-show="editor.connector._id" ng-click="editor.update();">Update!</button>
 <button ng-show="editor.connector._id" ng-click="editor.delete();">Delete!</button>
 
+<h2>Watched Metrics</h2>
+<ul>
+  <li ng-repeat="metric in editor.connector.metrics">
+    {{metric.name}}
+  </li>
+</ul>
+
 <h2>Available metrics</h2>
 <ul>
-  <li ng-repeat="metric in editor.connector.rawdata">{{metric}}</li>
+  <li ng-repeat="metric in editor.connector.rawdata">
+    {{metric.name}}: {{metric.value}}
+    <button ng-click="editor.addMetric(metric)">Add</button>
+  </li>
 </ul>
