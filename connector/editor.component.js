@@ -11,8 +11,8 @@
      }
     });
 
-  ConnectorEditor.$inject = ['$http', '$stateParams', 'ConnectorService', '$location'];
-  function ConnectorEditor($http, $stateParams, ConnectorService, $location) {
+  ConnectorEditor.$inject = ['$http', '$stateParams, '$location', 'ConnectorService'];
+  function ConnectorEditor($http, $stateParam, $locations, ConnectorService) {
     var vm = this;
     var id = $stateParams.id;
     var project_id = $stateParams.project_id;

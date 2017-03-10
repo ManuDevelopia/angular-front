@@ -16,6 +16,8 @@
     };
 
     var loggedInProject;
+    var loggedInConnector;
+    var loggedInMetric;
 
     service.user = function(user){
       if (user !== undefined){
@@ -33,6 +35,22 @@
       return loggedInProject;
     }
     
+    service.connector = function(connector){
+      if (connector !== undefined){
+        loggedInConnector = connector;
+      }
+
+      return loggedInConnector;
+    }
+
+    service.metric = function(metric){
+      if (metric !== undefined){
+        loggedInMetric = metric;
+      }
+
+      return loggedInMetric;
+    }
+
     // TODO: maybe this could be a nice idea
     service.organization = function(){}
     service.team = function(){}

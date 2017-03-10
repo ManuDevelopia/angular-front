@@ -36,10 +36,10 @@
       return deferred.promise;
     };
 
-    service.addItem = function(project){
+    service.addItem = function(metric){
       var deferred = $q.defer();
 
-      $http.post(config.apiUrl + '/metrics', project)
+      $http.post(config.apiUrl + '/metrics', metric)
         .then(function (res) {
           deferred.resolve(res.data);
         })

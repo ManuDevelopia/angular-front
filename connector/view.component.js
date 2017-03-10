@@ -11,15 +11,16 @@
       }
     });
 
-  ConnectorView.$inject = ['$stateParams', '$location','ConnectorService'];
-  function ConnectorView($stateParams, $location, ConnectorService) {
+  ConnectorView.$inject = ['$stateParams', '$location','ConnectorService', 'LoggedInService'];
+  function ConnectorView($stateParams, $location, ConnectorService, LoggedInService) {
     var vm = this;
     var id = $stateParams.id;
 
     ConnectorService.getItemById(id)
-      .then(function(prj){
-        vm.connector = prj; 
+      .then(function(connector){
+        vm.connector = connector; 
         vm.connector.rawData = mockRawData;
+        LoggedInService.connector(connector)
       })
       .catch(function(err){
         console.log(err);

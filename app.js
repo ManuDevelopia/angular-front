@@ -7,6 +7,9 @@
   angular.module('myFirstApp').controller('mainController', function ($scope, LoggedInService) {
     $scope.greet = 'Hi, this is Manu learning Angular, welcome to my application!';
     $scope.user = LoggedInService.user();
+    $scope.project = LoggedInService.project();
+    $scope.connector = LoggedInService.connector();
+    $scope.metric = LoggedInService.metric();
   });
 
   angular.module('myFirstApp').config(RoutesConfig);

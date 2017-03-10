@@ -11,14 +11,15 @@
       }
     });
 
-  UserView.$inject = ['$stateParams', '$location','UserService'];
-  function UserView($stateParams, $location, UserService) {
+  UserView.$inject = ['$stateParams', '$location','UserService', 'LoggedInService'];
+  function UserView($stateParams, $location, UserService, LoggedInService) {
     var vm = this;
     var id = $stateParams.id;
 
     UserService.getItemById(id)
-      .then(function(prj){
-        vm.user = prj; 
+      .then(function(user){
+        vm.user = user;
+        LoggedInService.user(user);
       })
       .catch(function(err){
         console.log(err);

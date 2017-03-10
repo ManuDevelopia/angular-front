@@ -12,8 +12,8 @@
       }
     });
 
-  UserListComponentController.$inject = ['$http', 'UserService', 'LoggedInService'];
-  function UserListComponentController($http, UserService, LoggedInService) {
+  UserListComponentController.$inject = ['$http', 'UserService'];
+  function UserListComponentController($http, UserService) {
     var list = this;
 
     list.$onInit = function(){
@@ -24,8 +24,6 @@
       .catch(function(error){
         console.log('An error occurred while getting the user list!');
       });
-
-      list.loggedInUser = LoggedInUserService.user();
     };
   }
 

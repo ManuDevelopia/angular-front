@@ -11,14 +11,15 @@
       }
     });
 
-  MetricView.$inject = ['$stateParams', '$location','MetricService'];
-  function MetricView($stateParams, $location, MetricService) {
+  MetricView.$inject = ['$stateParams', '$location','MetricService', 'LoggedInService'];
+  function MetricView($stateParams, $location, MetricService, LoggedInService) {
     var vm = this;
     var id = $stateParams.id;
 
     MetricService.getItemById(id)
-      .then(function(prj){
-        vm.metric = prj; 
+      .then(function(metric){
+        vm.metric = metric;
+        LoggedInService.metric(metric);
       })
       .catch(function(err){
         console.log(err);
