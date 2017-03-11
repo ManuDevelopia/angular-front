@@ -11,12 +11,12 @@
       }
     });
 
-  ProjectListComponentController.$inject = ['$http', 'ProjectListService'];
-  function ProjectListComponentController($http, ProjectListService) {
+  ProjectListComponentController.$inject = ['$http', 'ProjectService'];
+  function ProjectListComponentController($http, ProjectService) {
     var list = this;
 
     list.$onInit = function(){
-      ProjectListService.getItems()
+      ProjectService.getItems()
         .then(function (projectList){
           list.projects = projectList;
         })

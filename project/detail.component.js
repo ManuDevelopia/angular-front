@@ -13,12 +13,12 @@
     })
   ;
 
-  ProjectDetail.$inject = ['ProjectListService', '$location'];
-  function ProjectDetail(ProjectListService, $location){
+  ProjectDetail.$inject = ['ProjectService', '$location'];
+  function ProjectDetail(ProjectService, $location){
     var vm = this;
 
     vm.delete = function(project){
-      ProjectListService.deleteItem(project)
+      ProjectService.deleteItem(project)
         .then(function(ok){
           console.log(ok);
           $location.path('/list');

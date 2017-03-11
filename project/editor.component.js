@@ -11,14 +11,14 @@
      }
     });
 
-  ProjectEditor.$inject = ['$http', '$stateParams', '$location', 'ProjectListService', 'LoggedInService'];
-  function ProjectEditor($http, $stateParams, $location, ProjectListService, LoggedInService) {
+  ProjectEditor.$inject = ['$http', '$stateParams', '$location', 'ProjectService', 'LoggedInService'];
+  function ProjectEditor($http, $stateParams, $location, ProjectService, LoggedInService) {
     var vm = this;
     var id = $stateParams.id;
     
     if ( id !== undefined &&
          id.length > 0){
-      ProjectListService.getItemById(id)
+      ProjectService.getItemById(id)
         .then(function(project){
           vm.project = project;
         })
@@ -30,7 +30,7 @@
     vm.create = function () {
       if (vm.project.name) {
         vm.project.user = LoggedInService.user();
-        ProjectListService.addItem(vm.project)
+        ProjectService.addItem(vm.project)
           .then(function(ok){
             console.log(ok);
             $location.path('/list');
@@ -44,7 +44,7 @@
 
     vm.update = function() {
       if (vm.project.name) {
-        ProjectListService.updateItem(vm.project)
+        ProjectService.updateItem(vm.project)
           .then(function(ok){
             console.log(ok);
             $location.path('/list');
@@ -56,7 +56,7 @@
     };
 
     vm.delete = function(){
-      ProjectListService.deleteItem(vm.project)
+      ProjectService.deleteItem(vm.project)
         .then(function(ok){
             console.log(ok);
             $location.path('/list');

@@ -2,10 +2,10 @@
   'use strict';
 
   angular.module('myFirstApp')
-    .service('ProjectListService', ProjectListService);
+    .service('ProjectService', ProjectService);
 
-  ProjectListService.$inject = ['$q', '$http', 'config'];
-  function ProjectListService($q, $http, config){
+  ProjectService.$inject = ['$q', '$http', 'config'];
+  function ProjectService($q, $http, config){
     var service = this;
 
     service.getItems = function(){
