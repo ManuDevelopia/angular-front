@@ -11,11 +11,10 @@
      }
     });
 
-  ConnectorEditor.$inject = ['$http', '$stateParams, '$location', 'ConnectorService'];
-  function ConnectorEditor($http, $stateParam, $locations, ConnectorService) {
+  ConnectorEditor.$inject = ['$stateParams', '$location', 'ConnectorService', 'MetricService'];
+  function ConnectorEditor($stateParams, $location, ConnectorService, MetricService) {
     var vm = this;
     var id = $stateParams.id;
-    var project_id = $stateParams.project_id;
     
     if ( id !== undefined &&
          id.length > 0){
@@ -68,13 +67,10 @@
     };
 
     vm.addMetric = function(metric){
-      ConnectorService.addMetric(vm.connector, metric)
-          .then(function(ok){
-            console.log(ok);
-          })
-          .catch(function(err){
-            console.log(err);
-          });   
+      MetricService.addItem(metric)
+        .then(function (res) {
+          vm.connector.metrics.push(res);
+        })
     }
   }
 
