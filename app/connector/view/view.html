@@ -1,0 +1,14 @@
+<h2>
+  {{view.connector.name}}
+  <a ui-sref="connectorEditor({id: view.connector._id})">edit</a>
+  <a ng-click="view.delete(detail.connector)">delete</a>
+</h2>
+
+<h4>{{view.connector.endpoint}}</h4>
+
+<h3>Watched Metrics</h3>
+<ul>
+  <li ng-repeat="metric in view.connector.metrics">
+    <metric-detail metric="metric"></metric-detail>
+  </li>
+</ul>

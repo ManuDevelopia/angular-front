@@ -1,0 +1,4 @@
+<a ui-sref="metricView({id: detail.metric._id})">{{detail.metric.name}}</a>
+{{detail.metric.value}}
+<a ui-sref="metricEditor({id: detail.metric._id})">edit</a>
+<a ng-click="detail.delete(detail.metric)">delete </a>
