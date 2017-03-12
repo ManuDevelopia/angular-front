@@ -29,7 +29,7 @@
 
       return loggedInProject;
     }
-    
+
     service.connector = function(connector){
       if (connector !== undefined){
         loggedInConnector = connector;

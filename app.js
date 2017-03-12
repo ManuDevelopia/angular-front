@@ -41,7 +41,7 @@
     $stateProvider.state('connectorList', {
       url: '/connector/list',
       template: '<connector-list></connector-list>'
-    })
+    });
 
     $stateProvider.state('connectorView', {
       url: '/connector/:id',
@@ -61,7 +61,7 @@
     $stateProvider.state('metricList', {
       url: '/metric/list',
       template: '<metric-list></metric-list>'
-    })
+    });
 
     $stateProvider.state('metricView', {
       url: '/metric/:id',
