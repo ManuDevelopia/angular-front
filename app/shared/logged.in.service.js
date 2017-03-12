@@ -17,10 +17,10 @@
       UserService.getItems()
         .then(function (users) {
           loggedInUser = users[0];
-        })
+        });
 
       return loggedInUser;
-    }
+    };;
 
     service.project = function(project){
       if (project !== undefined){
@@ -28,7 +28,7 @@
       }
 
       return loggedInProject;
-    }
+    };
 
     service.connector = function(connector){
       if (connector !== undefined){
@@ -36,7 +36,7 @@
       }
 
       return loggedInConnector;
-    }
+    };
 
     service.metric = function(metric){
       if (metric !== undefined){
@@ -44,11 +44,11 @@
       }
 
       return loggedInMetric;
-    }
+    };
 
     // TODO: maybe this could be a nice idea
-    service.organization = function(){}
-    service.team = function(){}
+    service.organization = function(){};
+    service.team = function(){};
   }
 
 })();
