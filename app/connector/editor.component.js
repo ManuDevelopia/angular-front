@@ -11,8 +11,8 @@
      }
     });
 
-  ConnectorEditor.$inject = ['$stateParams', '$location', 'ProjectService', 'ConnectorService', 'MetricService'];
-  function ConnectorEditor($stateParams, $location, ProjectService, ConnectorService, MetricService) {
+  ConnectorEditor.$inject = ['$http', '$stateParams', '$location', 'ProjectService', 'ConnectorService', 'MetricService'];
+  function ConnectorEditor($http, $stateParams, $location, ProjectService, ConnectorService, MetricService) {
     var vm = this;
     var id = $stateParams.id;
     
@@ -26,15 +26,6 @@
         .catch(function(err){
           console.log(err);
         });
-    }
-    // Just to show mock result
-    else{
-      vm.connector = {
-        name: '',
-        owner: '',
-        metrics: []
-      };
-      vm.connector.rawdata = prepareMockRawData(rawdata);
     }
 
     vm.create = function () {
@@ -81,12 +72,23 @@
           });
     };
 
+    vm.getMetrics = function(){
+      $http.get(vm.connector.endpoint)
+        .then(function (res) {
+          vm.connector.rawdata = res.data;
+        })
+        .catch(function (err) {
+          console.log(err);
+          vm.connector.rawdata = prepareMockRawData(rawdata);
+        });
+    };
+
     vm.addMetric = function(metric){
       MetricService.addItem(metric)
         .then(function (res) {
           vm.connector.metrics.push(res);
         })
-    }
+    };
 
     vm.removeMetric = function (metric) {
       vm.connector.metrics.shift(metric);
