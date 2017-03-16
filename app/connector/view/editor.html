@@ -18,7 +18,7 @@
 
 <h2>Available metrics</h2>
 <ul>
-  <li ng-repeat="metric in editor.connector.rawdata">
+  <li ng-repeat="metric in editor.metrics">
     {{metric.name}}: {{metric.value}}
     <button ng-click="editor.addMetric(metric)">Add</button>
   </li>
