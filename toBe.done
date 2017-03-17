@@ -4,3 +4,4 @@
 - Take a look about 'Bundle' to avoid add js into index.html. commonjs
 - Backend crud does not update all the fields, its need to be implmented in frontend first.
 - Add a framework dependecy manager bower or equal
+- Add ui-router ass dependencie

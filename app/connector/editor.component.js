@@ -125,6 +125,7 @@ var rawdata = {
 
   function parseJson(rawJsonObject){
     var data = [];
+    var propertyPath = '';
 
     function parse(rawJson){
       for (var item of Object.keys(rawJson)){
@@ -134,9 +135,15 @@ var rawdata = {
         }
 
         if(typeof rawJson[item] === 'object'){
+          propertyPath += item + '.';
           parse(rawJson[item]);
+          propertyPath = '';
         } else {
-          data.push({name: item, value: rawJson[item]});
+          data.push({
+            name: item,
+            value: rawJson[item],
+            path: propertyPath + item
+          });
         }
       }
     };
@@ -224,17 +231,19 @@ var githubJson =
     "stargazers_count": 0,
     "watchers_count": 0,
     "language": "Java",
-    "has_issues": false,
-    "has_downloads": true,
-    "has_wiki": true,
-    "has_pages": false,
-    "forks_count": 0,
-    "mirror_url": null,
-    "open_issues_count": 0,
-    "forks": 0,
-    "open_issues": 0,
-    "watchers": 0,
-    "default_branch": "master"
+    "component_has":{
+      "has_issues": false,
+      "has_downloads": true,
+      "has_wiki": true,
+      "has_pages": false,
+      "forks_count": 0,
+      "mirror_url": null,
+      "open_issues_count": 0,
+      "forks": 0,
+      "open_issues": 0,
+      "watchers": 0,
+      "default_branch": "master"
+    }
   };
 
 })();
