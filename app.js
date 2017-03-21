@@ -15,7 +15,7 @@
   angular.module('myFirstApp').config(RoutesConfig);
 
   angular.module('myFirstApp').constant('config',{
-    apiUrl: 'http://localhost:5000/api'
+    apiUrl: 'https://deplomyci-backend.herokuapp.com/api'
   });
 
   RoutesConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
