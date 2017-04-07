@@ -1,0 +1,25 @@
+<h2>State Editor</h2>
+<input type="text" ng-model="editor.state.name" placeholder="Name">
+<br>
+<input type="text" ng-model="editor.state.endpoint" placeholder="Endpoint">
+<button ng-click="editor.getMetrics();">Read Metrics</button>
+<br>
+<button ng-show="!editor.state._id" ng-click="editor.create();">Create!</button>
+<button ng-show="editor.state._id" ng-click="editor.update();">Update!</button>
+<button ng-show="editor.state._id" ng-click="editor.delete();">Delete!</button>
+
+<h2>Watched Metrics</h2>
+<ul>
+  <li ng-repeat="metric in editor.state.metrics">
+    <metric-detail metric="metric"></metric-detail>
+    <button ng-click="editor.removeMetric(metric)">Remove</button>
+  </li>
+</ul>
+
+<h2>Available metrics</h2>
+<ul>
+  <li ng-repeat="metric in editor.metrics">
+    {{metric.name}}: {{metric.value}} - {{metric.path}}
+    <button ng-click="editor.addMetric(metric)">Add</button>
+  </li>
+</ul>

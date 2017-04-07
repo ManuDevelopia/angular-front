@@ -1,0 +1,4 @@
+<a ui-sref="stateView({id: detail.state._id})">{{detail.state.name}}</a>
+{{detail.state.endpoint}}
+<a ui-sref="stateEditor({id: detail.state._id})">edit</a>
+<a ng-click="detail.delete(detail.state)">delete </a>

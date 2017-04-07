@@ -1,0 +1,11 @@
+<h2>State List ({{list.states.length}})</h2>
+
+<a ui-sref="stateEditor">New</a>
+
+<ul>
+  <li ng-repeat="state in list.states">
+    <state-detail state="state"></state-detail>
+  </li>
+</ul>
+
+

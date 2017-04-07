@@ -1,0 +1,14 @@
+<h2>
+  {{view.state.name}}
+  <a ui-sref="stateEditor({id: view.state._id})">edit</a>
+  <a ng-click="view.delete(detail.state)">delete</a>
+</h2>
+
+<h4>{{view.state.endpoint}}</h4>
+
+<h3>Watched Metrics</h3>
+<ul>
+  <li ng-repeat="metric in view.state.metrics">
+    <metric-detail metric="metric"></metric-detail>
+  </li>
+</ul>

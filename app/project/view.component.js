@@ -1,6 +1,6 @@
 (function(){
   'use strict';
-  
+
   angular.module('myFirstApp')
     .component('projectView', {
       templateUrl: 'app/project/view/view.html',
@@ -11,8 +11,8 @@
       }
     });
 
-  ProjectView.$inject = ['$stateParams', '$location','ProjectService', 'LoggedInService'];
-  function ProjectView($stateParams, $location, ProjectService, LoggedInService) {
+  ProjectView.$inject = ['$stateParams', '$location','ProjectService', 'StateService', 'LoggedInService'];
+  function ProjectView($stateParams, $location, ProjectService, StateService, LoggedInService) {
     var vm = this;
     var id = $stateParams.id;
 
@@ -34,6 +34,23 @@
         .catch(function(err){
           console.log(err);
         });
+    }
+
+    vm.saveStatus = function(){
+      StateService.addItem({name: 'test'})
+        .then(function(res){
+          var status  = {name: 'Teststate', endpoint: 'www.test.com', metrics : []};
+          vm.project.states = [];
+          vm.project.states.push(status);
+          ProjectService.updateItem(vm.project)
+            .then(function(res){
+              console.log(res);
+            });
+        })
+      .catch(function(err){
+        console.log(err);
+      });
+
     }
   }
 

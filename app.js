@@ -52,12 +52,32 @@
       url: '/connector/editor/:id',
       template: '<connector-editor></connector-editor>'
     });
-  
+
     $stateProvider.state('connectorCreator', {
       url: '/connector/creator/:project_id',
       template: '<connector-editor></connector-editor>'
     });
- 
+
+     $stateProvider.state('stateList', {
+      url: '/state/list',
+      template: '<state-list></state-list>'
+    });
+
+    $stateProvider.state('stateView', {
+      url: '/state/:id',
+      template: '<state-view></state-view>'
+    });
+
+    $stateProvider.state('stateEditor', {
+      url: '/state/editor/:id',
+      template: '<state-editor></state-editor>'
+    });
+
+    $stateProvider.state('stateCreator', {
+      url: '/state/creator/:state_id',
+      template: '<state-editor></state-editor>'
+    });
+
     $stateProvider.state('metricList', {
       url: '/metric/list',
       template: '<metric-list></metric-list>'
@@ -72,12 +92,12 @@
       url: '/metric/editor/:id',
       template: '<metric-editor></metric-editor>'
     });
-  
+
     $stateProvider.state('metricCreator', {
       url: '/metric/creator/:project_id',
       template: '<metric-editor></metric-editor>'
     });
- 
+
     $stateProvider.state('userList', {
       url: '/user/list',
       template: '<user-list></user-list>'
@@ -91,7 +111,7 @@
     $stateProvider.state('userEditor', {
       url: '/user/editor/:id',
       template: '<user-editor></user-editor>'
-    }); 
+    });
   }
 
 })();

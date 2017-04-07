@@ -6,6 +6,10 @@
   <user-detail user="view.project.user"></user-detail>
   <h4>{{view.project.url}}</h4>
 
+  <button ng-click="view.saveStatus();">Save State</button>
+
+  <div>{{view.project.states}}</div>
+
   <div>Connectors ({{view.project.connectors.length}})
     <a ui-sref="connectorCreator({project_id: view.project._id})">New</a>
   </div>
