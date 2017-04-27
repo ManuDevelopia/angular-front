@@ -37,11 +37,12 @@
     }
 
     vm.saveStatus = function(){
-      StateService.addItem({name: 'test'})
+      var status  = {name: 'Teststate', endpoint: 'www.test.com', metrics : []};
+
+      StateService.addItem(status)
         .then(function(res){
-          var status  = {name: 'Teststate', endpoint: 'www.test.com', metrics : []};
           vm.project.states = [];
-          vm.project.states.push(status);
+          vm.project.states.push(res);
           ProjectService.updateItem(vm.project)
             .then(function(res){
               console.log(res);
