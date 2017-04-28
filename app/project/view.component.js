@@ -41,7 +41,6 @@
 
       StateService.addItem(status)
         .then(function(res){
-          vm.project.states = [];
           vm.project.states.push(res);
           ProjectService.updateItem(vm.project)
             .then(function(res){
