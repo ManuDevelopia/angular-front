@@ -16,6 +16,7 @@
     var list = this;
 
     list.$onInit = function(){
+      if(list.states === undefined){
       StateService.getItems()
         .then(function (stateList){
           list.states = stateList;
@@ -23,7 +24,7 @@
       .catch(function(error){
         console.log('An error occurred while getting the state list!');
       });
-
+       }
     };
   }
 

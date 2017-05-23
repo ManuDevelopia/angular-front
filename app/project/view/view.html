@@ -8,7 +8,7 @@
 
   <button ng-click="view.saveStatus();">Save State</button>
 
-  <div>{{view.project.states}}</div>
+  <state-list states="view.project.states"></state-list>
 
   <div>Connectors ({{view.project.connectors.length}})
     <a ui-sref="connectorCreator({project_id: view.project._id})">New</a>

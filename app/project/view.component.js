@@ -37,7 +37,12 @@
     }
 
     vm.saveStatus = function(){
-      var status  = {name: 'Teststate', endpoint: 'www.test.com', metrics : []};
+      var status  = {
+        name: 'Teststate',
+        endpoint: 'www.test.com',
+        connectors: []
+      };
+
 
       StateService.addItem(status)
         .then(function(res){
