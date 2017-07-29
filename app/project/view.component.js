@@ -40,9 +40,8 @@
       var status  = {
         name: 'Teststate',
         endpoint: 'www.test.com',
-        connectors: []
+        connectors: vm.project.connectors
       };
-
 
       StateService.addItem(status)
         .then(function(res){
